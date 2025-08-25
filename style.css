@@ -26,11 +26,17 @@ header p {
 /* Gallery */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
   padding: 2rem;
 }
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+/* Photo */
 .photo {
   position: relative;
   overflow: hidden;
@@ -50,49 +56,30 @@ header p {
   object-fit: cover;
 }
 
-/* Landscape & Portrait Styling */
-.landscape { grid-column: span 2; aspect-ratio: 16 / 9; }
-.portrait { aspect-ratio: 9 / 16; }
+/* Landscape & Portrait */
+.landscape { aspect-ratio: 16 / 9; width: 100%; }
+.portrait { aspect-ratio: 9 / 16; width: 100%; }
 
-/* Popup */
-.popup {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255, 20, 120, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-}
-.hidden { display: none; }
-
-.popup-content {
-  background: #fff;
-  color: #ff2e63;
-  padding: 2rem;
-  border-radius: 20px;
-  max-width: 350px;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(255, 20, 120, 0.8);
-  animation: pop 0.4s ease;
-}
-.popup-content p {
+/* Letter Box */
+.letter {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background: #fff0f5;
+  color: #d6336c;
+  font-family: 'Dancing Script', cursive;
   font-size: 1.2rem;
-  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(255, 20, 120, 0.3);
+  border: 2px dashed #ff6b81;
+  animation: fadeIn 0.5s ease;
+  max-width: 90%;
 }
-.close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #fff;
+.hidden {
+  display: none;
 }
-@keyframes pop {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Falling Hearts */
@@ -113,3 +100,4 @@ header p {
   from { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
   to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
+
