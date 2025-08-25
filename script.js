@@ -1,18 +1,16 @@
-// Popup Logic
+// Open/Close Letters
 const photos = document.querySelectorAll('.photo');
-const popup = document.getElementById('popup');
-const popupText = document.getElementById('popup-text');
-const closeBtn = document.querySelector('.close');
-
 photos.forEach(photo => {
   photo.addEventListener('click', () => {
-    popupText.innerText = photo.getAttribute('data-content');
-    popup.classList.remove('hidden');
-  });
-});
+    // Close all open letters
+    document.querySelectorAll('.letter').forEach(letter => {
+      letter.classList.add('hidden');
+    });
 
-closeBtn.addEventListener('click', () => {
-  popup.classList.add('hidden');
+    // Open the one below clicked photo
+    const letter = photo.nextElementSibling;
+    if (letter) letter.classList.remove('hidden');
+  });
 });
 
 // Falling Hearts
