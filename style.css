@@ -1,0 +1,93 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at top, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+/* Header */
+header {
+  padding: 2rem 1rem;
+  text-shadow: 0 0 20px #ff6ec7;
+}
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #ff6ec7;
+}
+header p {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+}
+
+/* Section Title */
+.memory-section {
+  padding: 2rem 1rem;
+}
+.memory-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #80ffdb;
+  text-shadow: 0 0 15px #00f7ff;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 0 2rem;
+}
+.gallery .photo {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 25px rgba(255, 110, 199, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.gallery .photo:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 0 35px rgba(128, 255, 219, 0.9);
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Falling Hearts */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  color: #ff6ec7;
+  font-size: 20px;
+  animation: fall linear forwards;
+  text-shadow: 0 0 10px #ff6ec7, 0 0 20px #ff0099;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
