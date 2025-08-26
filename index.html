@@ -3,68 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Only For You 💖</title>
+  <title>For My Love ❤️</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- INTRO SCREEN -->
-  <div id="intro">
-    <h1><span>I</span> <span>❤️</span> <span>U</span></h1>
+  <!-- Loading / Welcome Screen -->
+  <div class="welcome-screen">
+    <h1 class="welcome-text">I ❤️ U</h1>
   </div>
 
-  <!-- MUSIC CONTROL -->
-  <div class="music-control">
-    <button id="musicBtn">🎵</button>
-    <audio id="bgMusic" loop autoplay>
-      <source src="music.mp3" type="audio/mpeg">
-    </audio>
+  <!-- Main Container -->
+  <div class="container hidden">
+    <h2 class="title">Our Memories 💕</h2>
+    <div class="gallery">
+      <div class="photo-card landscape" onclick="toggleLetter(this)">
+        <img src="photo1.jpg" alt="Memory 1">
+        <div class="letter">This was one of our happiest days 💖</div>
+      </div>
+      <div class="photo-card landscape" onclick="toggleLetter(this)">
+        <img src="photo2.jpg" alt="Memory 2">
+        <div class="letter">Every smile of yours is my favorite moment 😍</div>
+      </div>
+      <div class="photo-card portrait" onclick="toggleLetter(this)">
+        <img src="photo3.jpg" alt="Memory 3">
+        <div class="letter">You make my world brighter ✨</div>
+      </div>
+      <div class="photo-card portrait" onclick="toggleLetter(this)">
+        <img src="photo4.jpg" alt="Memory 4">
+        <div class="letter">Forever grateful for your love ❤️</div>
+      </div>
+      <div class="photo-card portrait" onclick="toggleLetter(this)">
+        <img src="photo5.jpg" alt="Memory 5">
+        <div class="letter">Every memory with you is precious 🌸</div>
+      </div>
+      <div class="photo-card portrait" onclick="toggleLetter(this)">
+        <img src="photo6.jpg" alt="Memory 6">
+        <div class="letter">Can’t wait for more adventures with you 💕</div>
+      </div>
+    </div>
   </div>
 
-  <!-- HEADER -->
-  <header>
-    <h1>💌 Our Magic Memories 💌</h1>
-    <p>Forever & Always ✨</p>
-  </header>
-
-  <!-- GALLERY -->
-  <section class="gallery">
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front"><img src="images/photo1.jpg" alt=""></div>
-        <div class="card-back">🌸 That day felt like a dream…</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front"><img src="images/photo2.jpg" alt=""></div>
-        <div class="card-back">💫 Every second with you = magic</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front"><img src="images/photo3.jpg" alt=""></div>
-        <div class="card-back">💖 Your smile is my universe</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-front"><img src="images/photo4.jpg" alt=""></div>
-        <div class="card-back">🌹 You’re my safe place</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Background Hearts -->
-  <div id="hearts"></div>
-
-  <!-- Fireworks only for intro -->
   <canvas id="fireworks"></canvas>
+  <canvas id="hearts"></canvas>
 
   <script src="script.js"></script>
 </body>
