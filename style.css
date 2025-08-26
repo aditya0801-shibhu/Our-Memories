@@ -1,86 +1,108 @@
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  background: pink;
-  overflow-x: hidden;
-  color: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Welcome Screen */
-.welcome-screen {
+body {
+  font-family: 'Great Vibes', cursive;
+  background: pink;
+  overflow-x: hidden;
+}
+
+/* Splash */
+#splash {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: #ff99cc;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 10;
-}
-.welcome-text {
-  font-family: 'Pacifico', cursive;
-  font-size: 3rem;
-  color: #fff;
-  animation: pop 1s infinite alternate;
-}
-@keyframes pop {
-  from { transform: scale(1); }
-  to { transform: scale(1.2); }
+  align-items: center;
+  background: pink;
+  z-index: 9999;
 }
 
-/* Main Container */
+#splash h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: 3.5rem;
+  animation: fadeIn 2s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.2; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.1); }
+}
+
+/* Fireworks canvas */
+#fireworks {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 9998;
+  background: transparent;
+}
+
+/* Hide class */
 .hidden { display: none; }
-.container {
-  padding: 20px;
-  text-align: center;
-}
-.title {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  font-family: 'Pacifico', cursive;
-  color: #fff;
-}
 
 /* Gallery */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 15px;
+  padding: 20px;
 }
-.photo-card {
+
+.photo {
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
   cursor: pointer;
-  background: #fff;
 }
-.photo-card img {
+
+.photo img {
   width: 100%;
-  display: block;
+  height: auto;
   border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
-.photo-card.landscape img { aspect-ratio: 16/9; object-fit: cover; }
-.photo-card.portrait img { aspect-ratio: 9/16; object-fit: cover; }
 
+.photo img:hover {
+  transform: scale(1.05);
+}
+
+.wide img {
+  aspect-ratio: 16 / 9;
+}
+
+.photo:not(.wide) img {
+  aspect-ratio: 9 / 16;
+}
+
+/* Letter */
 .letter {
+  margin-top: 10px;
+  background: #fff0f5;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  text-align: center;
   display: none;
-  background: rgba(255,255,255,0.9);
-  color: #d63384;
-  padding: 10px;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  margin-top: 8px;
-  font-family: 'Pacifico', cursive;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
-.photo-card.active .letter { display: block; }
 
-/* Canvases */
-canvas {
+/* Falling hearts */
+.heart {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 0;
+  top: -20px;
+  font-size: 18px;
+  color: red;
+  animation: fall linear infinite;
+  z-index: 1;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
 }
