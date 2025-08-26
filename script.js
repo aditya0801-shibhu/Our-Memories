@@ -1,36 +1,25 @@
-// Toggle Letters on Photo Click
-const photos = document.querySelectorAll('.photo');
-photos.forEach(photo => {
-  photo.addEventListener('click', () => {
-    const letter = photo.nextElementSibling;
-    document.querySelectorAll('.letter').forEach(l => {
-      if (l !== letter) l.classList.add('hidden');
-    });
-    letter.classList.toggle('hidden');
-  });
-});
+// LOADING SCREEN REMOVE
+window.onload = () => {
+  setTimeout(() => document.getElementById("loading").style.display = "none", 3000);
+};
 
-// Floating Hearts
+// HEARTS FLOATING
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
   heart.innerText = "❤";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  heart.style.fontSize = Math.random() * 25 + 15 + "px";
   heart.style.animationDuration = Math.random() * 3 + 3 + "s";
-  document.getElementById("hearts-container").appendChild(heart);
+  document.getElementById("hearts").appendChild(heart);
   setTimeout(() => heart.remove(), 6000);
 }
 setInterval(createHeart, 400);
 
-// Floating Stars
-function createStar() {
-  const star = document.createElement("div");
-  star.classList.add("star");
-  star.style.width = star.style.height = Math.random() * 4 + 2 + "px";
-  star.style.left = Math.random() * 100 + "vw";
-  star.style.animationDuration = Math.random() * 4 + 4 + "s";
-  document.getElementById("stars-container").appendChild(star);
-  setTimeout(() => star.remove(), 6000);
-}
-setInterval(createStar, 500);
+// MUSIC CONTROL
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+btn.addEventListener("click", () => {
+  if (music.paused) { music.play(); btn.innerText = "🔊"; }
+  else { music.pause(); btn.innerText = "🔇"; }
+});
