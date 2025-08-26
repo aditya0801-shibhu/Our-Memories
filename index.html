@@ -1,122 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>For Us ❤️</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Tagda fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Intro (2–3 sec typing) + Fireworks behind -->
+
+  <!-- Intro Section -->
   <div id="intro">
-    <canvas id="fw"></canvas>
-
-    <div class="intro-center">
-      <h1 id="typeLine" aria-label="I Am In Love With You"></h1>
-
-      <!-- Sound prompt (mobile will need user interaction) -->
-      <button id="soundBtn" class="sound-btn" aria-label="Enable sound">🔊 Enable Sound</button>
-      <audio id="fwSound" preload="auto">
-        <!-- apna fireworks sound yahan daalo -->
-        <source src="fireworks.mp3" type="audio/mpeg">
-      </audio>
-    </div>
+    <div class="typing">I Am In Love With You ❤️</div>
   </div>
 
-  <!-- Main after intro -->
-  <main id="main" class="hidden">
-    <header class="hero">
-      <h2 class="brand">Our Little Universe</h2>
-      <p class="tag">Two hearts • One story</p>
-    </header>
+  <canvas id="fireworks"></canvas>
+  
+  <!-- Timeline -->
+  <section class="timeline" id="memories">
+    <h2>Our Memories</h2>
+    <p>That Will Be Always In My Mind My Love</p>
 
-    <!-- Animated Gallery (each row: left = small photo frame, right = words) -->
-    <section class="memories">
+    <div class="memory">
+      <div class="photo"><img src="yourphoto1.jpg" alt=""></div>
+      <div class="heart">❤️</div>
+      <div class="text-box">That special day 🌸 <br> 01-01-2024</div>
+    </div>
 
-      <!-- 1) LANDSCAPE -->
-      <article class="memory card fade-in">
-        <div class="frame landscape">
-          <img src="images/photo1.jpg" alt="Memory 1">
-        </div>
-        <div class="words">
-          <h3>the first one</h3>
-          <p>That day everything slowed down… and I realized I’m happiest with you. 💗</p>
-        </div>
-      </article>
+    <div class="memory">
+      <div class="photo"><img src="yourphoto2.jpg" alt=""></div>
+      <div class="heart">❤️</div>
+      <div class="text-box">Our sweetest laugh 😍 <br> 14-02-2024</div>
+    </div>
 
-      <!-- 2) LANDSCAPE -->
-      <article class="memory card fade-in">
-        <div class="frame landscape">
-          <img src="images/photo2.jpg" alt="Memory 2">
-        </div>
-        <div class="words">
-          <h3>this smile, my peace</h3>
-          <p>Your laugh is the soundtrack of my favorite moments. ✨</p>
-        </div>
-      </article>
+    <div class="memory">
+      <div class="photo"><img src="yourphoto3.jpg" alt=""></div>
+      <div class="heart">❤️</div>
+      <div class="text-box">Forever together 💕 <br> 20-03-2024</div>
+    </div>
+  </section>
 
-      <!-- 3) PORTRAIT -->
-      <article class="memory card fade-in">
-        <div class="frame portrait">
-          <img src="images/photo3.jpg" alt="Memory 3">
-        </div>
-        <div class="words">
-          <h3>hand in hand</h3>
-          <p>With you, the world looks softer, kinder, warmer. 🌸</p>
-        </div>
-      </article>
+  <!-- Love Letter -->
+  <div class="letter">
+    My Love, <br>
+    Every moment with you is my treasure.  
+    You’re my today and all of my tomorrows.  
+    <br><br> — Yours Forever ❤️ <br> 26-08-2025
+  </div>
 
-      <!-- 4) PORTRAIT -->
-      <article class="memory card fade-in">
-        <div class="frame portrait">
-          <img src="images/photo4.jpg" alt="Memory 4">
-        </div>
-        <div class="words">
-          <h3>little adventures</h3>
-          <p>Every small plan turned into a big memory with you. 🌙</p>
-        </div>
-      </article>
-
-      <!-- 5) PORTRAIT -->
-      <article class="memory card fade-in">
-        <div class="frame portrait">
-          <img src="images/photo5.jpg" alt="Memory 5">
-        </div>
-        <div class="words">
-          <h3>you, always</h3>
-          <p>I choose you — in every timeline, in every universe. 💫</p>
-        </div>
-      </article>
-
-      <!-- 6) PORTRAIT -->
-      <article class="memory card fade-in">
-        <div class="frame portrait">
-          <img src="images/photo6.jpg" alt="Memory 6">
-        </div>
-        <div class="words">
-          <h3>forever us</h3>
-          <p>Not a chapter — you’re the whole book I’ll keep rereading. 📖💞</p>
-        </div>
-      </article>
-    </section>
-
-    <!-- Final Letter -->
-    <section class="letter card rise-in">
-      <h3 class="script">A small letter, just for you</h3>
-      <p>
-        I am in love with you — in the quiet mornings, the loud laughs, the silly jokes,
-        and the silent walks. Thank you for making this life feel like home.  
-      </p>
-      <ul class="dates">
-        <li>Met: 12 Jan 2023</li>
-        <li>First Date: 02 Feb 2023</li>
-        <li>Anniversary: 26 Aug 2024</li>
-      </ul>
-      <p class="sign script">Forever yours.</p>
-    </section>
-  </main>
+  <audio id="fireworkSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
