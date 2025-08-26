@@ -3,51 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future Love Memories 💖</title>
+  <title>Only For You 💖</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- LOADING SCREEN -->
+  <div id="loading">
+    <h1>For My Love ❤️</h1>
+  </div>
+
+  <!-- MUSIC CONTROL -->
+  <div class="music-control">
+    <button id="musicBtn">🎵</button>
+    <audio id="bgMusic" loop autoplay>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- HEADER -->
   <header>
-    <h1>💌 Our Timeless Memories 💌</h1>
-    <p>With you, every moment is eternal ✨</p>
+    <h1>💌 Our Magic Memories 💌</h1>
+    <p>Forever & Always ✨</p>
   </header>
 
+  <!-- GALLERY -->
   <section class="gallery">
-    <div class="photo-card">
-      <div class="photo"><img src="images/photo1.jpg" alt=""></div>
-      <div class="letter hidden">🌸 That day felt like a dream… and you were my favorite part of it.</div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front"><img src="images/photo1.jpg" alt=""></div>
+        <div class="card-back">🌸 That day felt like a dream…</div>
+      </div>
     </div>
 
-    <div class="photo-card">
-      <div class="photo"><img src="images/photo2.jpg" alt=""></div>
-      <div class="letter hidden">💫 Every second with you feels like a beautiful eternity.</div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front"><img src="images/photo2.jpg" alt=""></div>
+        <div class="card-back">💫 Every second with you = magic</div>
+      </div>
     </div>
 
-    <div class="photo-card">
-      <div class="photo"><img src="images/photo3.jpg" alt=""></div>
-      <div class="letter hidden">💖 Your smile is the light that guides me through every darkness.</div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front"><img src="images/photo3.jpg" alt=""></div>
+        <div class="card-back">💖 Your smile is my universe</div>
+      </div>
     </div>
 
-    <div class="photo-card">
-      <div class="photo"><img src="images/photo4.jpg" alt=""></div>
-      <div class="letter hidden">🌹 You are not just my love, you are my safe place.</div>
-    </div>
-
-    <div class="photo-card">
-      <div class="photo"><img src="images/photo5.jpg" alt=""></div>
-      <div class="letter hidden">✨ With you, even silence feels like music.</div>
-    </div>
-
-    <div class="photo-card">
-      <div class="photo"><img src="images/photo6.jpg" alt=""></div>
-      <div class="letter hidden">💍 You are not my chapter, you are my whole story.</div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front"><img src="images/photo4.jpg" alt=""></div>
+        <div class="card-back">🌹 You’re my safe place</div>
+      </div>
     </div>
   </section>
 
-  <div id="hearts-container"></div>
-  <div id="stars-container"></div>
+  <div id="hearts"></div>
   <script src="script.js"></script>
 </body>
 </html>
-
