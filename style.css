@@ -1,170 +1,110 @@
-/* Reset + base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root{
-  --bg1:#ffdde8;
-  --bg2:#ffd1e0;
-  --accent:#ff2e74;
-  --ink:#5b2342;
-  --card:#ffffffee;
-  --ring:#ff9ac0;
-}
-html,body{height:100%}
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-  font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: radial-gradient(1200px 600px at 50% -20%, var(--bg1), var(--bg2));
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  font-family: 'Poppins', sans-serif;
+  background:#111;
+  color:white;
+  overflow-x:hidden;
 }
 
-/* INTRO */
+/* Starting Screen */
 #intro{
-  position: fixed; inset: 0;
-  background: #0b0b0b;
-  display: grid; place-items: center;
-  z-index: 9999;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:black;
+  flex-direction:column;
 }
-#fw{
-  position: absolute; inset: 0;
+.typing{
+  font-size:2.5rem;
+  font-family:'Great Vibes', cursive;
+  color:#ff4d6d;
+  border-right:.15em solid white;
+  white-space:nowrap;
+  overflow:hidden;
+  width:0;
+  animation: typing 3s steps(30,end) forwards, blink .75s step-end infinite;
 }
-.intro-center{
-  position: relative;
-  display:flex; flex-direction:column; align-items:center; gap:1rem;
-  z-index:2;
+@keyframes typing {from{width:0} to{width:100%;}}
+@keyframes blink {50%{border-color:transparent}}
+
+/* Fireworks canvas */
+#fireworks{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  z-index:-1;
 }
-#typeLine{
-  font-family:'Montserrat', sans-serif;
-  font-weight:700;
-  letter-spacing: .02em;
-  font-size: clamp(28px, 8vw, 64px);
+
+/* Timeline Section */
+.timeline{
+  padding:60px 20px;
+  text-align:center;
+}
+.timeline h2{
+  font-family:'Great Vibes', cursive;
+  font-size:2.5rem;
+  margin-bottom:10px;
+  color:#ff4d6d;
+}
+.timeline p{
+  font-size:1.2rem;
+  color:#ddd;
+  margin-bottom:40px;
+  font-style:italic;
+}
+.memory{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:40px 0;
+  opacity:0;
+  transform:translateY(50px);
+  transition:all .8s ease;
+}
+.memory.show{opacity:1;transform:translateY(0);}
+.photo{
+  width:200px;height:150px;
+  background:#333;
+  border-radius:15px;
+  overflow:hidden;
+  flex-shrink:0;
+  box-shadow:0 5px 15px rgba(0,0,0,.5);
+}
+.photo img{width:100%;height:100%;object-fit:cover;}
+.heart{
+  margin:0 15px;
+  font-size:2rem;
+  color:#ff4d6d;
+}
+.text-box{
+  min-width:200px;
+  max-width:250px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.3);
+  backdrop-filter:blur(10px);
+  border-radius:15px;
+  padding:15px;
+  text-align:left;
+  font-size:1rem;
+  font-family:'Poppins',sans-serif;
+  color:white;
+}
+
+/* Love Letter */
+.letter{
+  margin:60px auto;
+  max-width:500px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.3);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:30px;
+  font-family:'Great Vibes', cursive;
+  font-size:1.8rem;
+  line-height:1.6;
   color:#fff;
   text-align:center;
-  /* subtle glow */
-  text-shadow: 0 0 18px rgba(255,70,140,.85);
-  /* caret */
-  border-right: 3px solid #fff;
-  padding-right:4px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.sound-btn{
-  border:none; outline:none; cursor:pointer;
-  padding:.6rem .9rem; border-radius:999px;
-  background: linear-gradient(120deg,#ff2e74,#ff6fa6);
-  color:#fff; font-weight:600;
-  box-shadow: 0 8px 24px rgba(255,46,116,.35);
-}
-
-/* MAIN */
-.hidden{ display:none; }
-
-.hero{
-  padding: 22px 18px 6px;
-  text-align:center;
-  animation: fade-in .9s ease both;
-}
-.brand{
-  font-weight:600;
-  font-size: clamp(22px, 5.2vw, 36px);
-  color: var(--accent);
-  text-shadow: 0 0 14px rgba(255,46,116,.2);
-  letter-spacing:.5px;
-}
-.tag{
-  margin-top:4px; color:#7b3b5f; font-size:.95rem;
-}
-
-/* Gallery rows */
-.memories{
-  display:grid;
-  gap:14px;
-  padding: 14px 14px 24px;
-}
-
-/* Card look */
-.card{
-  background: var(--card);
-  border: 1px solid #ffd3e8;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(255,70,140,.15);
-  padding: 12px;
-}
-
-/* memory row: left frame + right words */
-.memory{
-  display:grid;
-  grid-template-columns: 120px 1fr; /* left small frame, right words */
-  align-items:center;
-  gap: 12px;
-}
-
-/* Photo frames — NEVER distort images */
-.frame{
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-  border: 2px solid var(--ring);
-  box-shadow: 0 8px 22px rgba(255, 80, 140, .25);
-  background:#fff;
-}
-.frame img{
-  width:100%; height:100%;
-  object-fit: cover; /* FIT perfectly, no contract/distort */
-  display:block;
-}
-.frame.landscape{ aspect-ratio: 16 / 9; }
-.frame.portrait { aspect-ratio: 9 / 16; }
-
-/* Words block */
-.words h3{
-  font-weight:600;
-  font-size: 1.05rem;
-  text-transform: lowercase;
-  letter-spacing:.5px;
-  color: var(--accent);
-  margin-bottom:4px;
-}
-.words p{
-  line-height:1.4;
-  color:#6b3356;
-  font-size:.96rem;
-}
-
-/* Final letter */
-.letter{
-  margin: 8px 14px 40px;
-  padding: 18px 16px;
-}
-.letter .script{
-  font-family: 'Great Vibes', cursive;
-  color: var(--accent);
-  font-size: clamp(22px, 5.6vw, 36px);
-}
-.letter p{
-  margin-top: 8px;
-  color:#5b2342;
-  font-size:1rem;
-}
-.letter .dates{
-  margin: 12px 0 4px 22px;
-  color:#7b3b5f;
-  font-size:.95rem;
-}
-.sign{ margin-top: 8px; }
-
-/* Subtle animations */
-@keyframes fade-in{ from{opacity:0; transform: translateY(8px)} to{opacity:1; transform:none} }
-.fade-in{ animation: fade-in .8s ease both; }
-@keyframes rise-in{ from{opacity:0; transform: translateY(10px) scale(.98)} to{opacity:1; transform:none} }
-.rise-in{ animation: rise-in .8s ease .1s both; }
-
-/* Responsive tune (Android first) */
-@media (min-width: 420px){
-  .memory{ grid-template-columns: 140px 1fr; }
-}
-@media (min-width: 640px){
-  .memories{ gap:16px; padding: 16px 18px 32px; }
-  .memory{ grid-template-columns: 160px 1fr; }
+  box-shadow:0 5px 20px rgba(0,0,0,.5);
 }
 
