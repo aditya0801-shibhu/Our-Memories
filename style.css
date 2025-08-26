@@ -7,12 +7,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 9999;
 }
 #intro h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 5rem;
+  font-family: 'Lobster Two', cursive;
+  font-size: 4rem;
   color: white;
+  text-align: center;
+  letter-spacing: 5px;
 }
 #intro h1 span {
   opacity: 0;
@@ -32,15 +34,92 @@
   top: 0; left: 0;
   width: 100%; height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 1000;
 }
 
-/* Cards Bounce Effect */
+/* Music Button */
+.music-control {
+  position: fixed;
+  top: 15px; right: 15px;
+  z-index: 500;
+}
+.music-control button {
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #ff4d6d;
+  color: white;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-top: 80px;
+  font-family: 'Poppins', sans-serif;
+}
+header h1 {
+  font-size: 2rem;
+  color: #ff1e56;
+}
+header p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Gallery (Mobile Friendly) */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 20px;
+}
 .card {
-  animation: popIn 1s ease;
+  perspective: 1000px;
 }
-@keyframes popIn {
-  from {transform: scale(0.5); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
+.card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-back {
+  background: #ff4d6d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transform: rotateY(180deg);
+  font-size: 1rem;
 }
 
+/* Hearts */
+.heart {
+  position: fixed;
+  bottom: 0;
+  font-size: 20px;
+  color: #ff1e56;
+  animation: floatUp linear forwards;
+}
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
