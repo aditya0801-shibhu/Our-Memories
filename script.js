@@ -1,9 +1,11 @@
-// INTRO REMOVE WITH BLAST
+// INTRO REMOVE + FIREWORKS END
 window.onload = () => {
+  startFireworks();
+
   setTimeout(() => {
     document.getElementById("intro").style.display = "none";
-    startFireworks();
-  }, 4000);
+    document.getElementById("fireworks").style.display = "none"; // stop showing fireworks
+  }, 5000); // 5 sec only
 };
 
 // HEARTS FLOATING
@@ -46,8 +48,7 @@ function startFireworks() {
   }
 
   function draw() {
-    ctx.fillStyle = "rgba(0,0,0,0.2)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     particles.forEach((p, i) => {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
@@ -55,7 +56,7 @@ function startFireworks() {
       ctx.fill();
       p.y -= 3;
       if (p.y < p.targetY) {
-        for (let j=0;j<50;j++) {
+        for (let j=0;j<30;j++) {
           particles.push({
             x: p.x, y: p.y,
             size: random(1,3),
@@ -85,6 +86,6 @@ function startFireworks() {
     requestAnimationFrame(draw);
   }
 
-  setInterval(createFirework, 1000);
+  setInterval(createFirework, 600);
   draw();
 }
