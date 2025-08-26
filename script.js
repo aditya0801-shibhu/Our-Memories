@@ -1,19 +1,21 @@
-// Open/Close Letters
+// Toggle Letters on Photo Click
 const photos = document.querySelectorAll('.photo');
+
 photos.forEach(photo => {
   photo.addEventListener('click', () => {
-    // Close all open letters
-    document.querySelectorAll('.letter').forEach(letter => {
-      letter.classList.add('hidden');
+    const letter = photo.nextElementSibling;
+
+    // Close others first
+    document.querySelectorAll('.letter').forEach(l => {
+      if (l !== letter) l.classList.add('hidden');
     });
 
-    // Open the one below clicked photo
-    const letter = photo.nextElementSibling;
-    if (letter) letter.classList.remove('hidden');
+    // Toggle current one
+    letter.classList.toggle('hidden');
   });
 });
 
-// Falling Hearts
+// Falling Hearts Animation
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
@@ -25,4 +27,5 @@ function createHeart() {
 
   setTimeout(() => { heart.remove(); }, 6000);
 }
-setInterval(createHeart, 400);
+setInterval(createHeart, 350);
+
